@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 News Area Prediction</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'predictor/css/style.css' %}">
+    <!-- Google Fonts for modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <div class="container header-container">
+            <h1 class="app-title">📰 News Area Prediction</h1>
+            <nav class="nav">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main class="main-content">
+        <div class="container main-container">
+            <section class="prediction-section card">
+                <h2 class="section-title">Enter a News Article</h2>
+                
+                <form id="predictForm" method="POST" class="predict-form" autocomplete="off">
+                    {% csrf_token %}
+                    <textarea 
+                        name="news_text" 
+                        id="newsText" 
+                        class="news-textarea" 
+                        placeholder="Type or paste a news article here..."
+                        required>{{ text }}</textarea>
+
+                    <button type="submit" class="predict-btn" onclick="handleClick(event)">
+                        Predict Category
+                    </button>
+                </form>
+
+                <!-- Result Card -->
+                <div id="result-section" class="result-card">
+                    {% if prediction %}
+                        <h3>Predicted Category: <span>{{ prediction }}</span></h3>
+                       <!-- {% if confidence %} -->
+                         <!-- <p>Confidence: {{ confidence }}</p>  -->
+                          <!-- {% endif %} -->
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2025 News Classifier App | Built with Django &amp; Machine Learning & NLP</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'predictor/js/script.js' %}"></script>
+</body>
+</html>
