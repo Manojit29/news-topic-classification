@@ -70,19 +70,43 @@ Serve predictions through a Django/Flask web app.
 
 📊 Results
 
-The trained model provides correct predictions for new news articles.
+The trained machine learning pipeline demonstrates strong performance on real-world news text.
 
-Example predictions:
+Model: TF-IDF + Logistic Regression
+
+Accuracy: ~97% on BBC News dataset
+
+Example Predictions
 
 “India won the cricket world cup” → Sports
 
-“Stock markets saw sharp increase” → Business
+“Stock markets saw a sharp increase today” → Business
 
-📌 Future Work
+“The government passed a new law related to tax reforms” → Politics
 
-Improve accuracy with Deep Learning models (LSTM, CNN, RNN).
+The deployed Django application provides consistent and reliable predictions for unseen news articles.
 
-Explore Transformer models (BERT, RoBERTa, DistilBERT).
+📌 Model Selection Insight
+
+During development, multiple modeling strategies were evaluated.
+The classical machine learning approach was selected for deployment due to:
+
+High accuracy on this dataset
+
+Faster inference time
+
+Lower complexity and easier deployment
+
+This highlights the importance of choosing models based on data characteristics rather than complexity alone.
+
+📌 Future Improvements
+
+Evaluate neural network–based text classifiers on larger datasets
+
+Explore pretrained language models (e.g., Transformer-based architectures) for improved semantic understanding
+
+Extend the application with API-based inference and cloud deployment
+
 
 👨‍💻 Author
 
